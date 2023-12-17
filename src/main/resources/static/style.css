@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #c7d1d692;
+    color:#3a3c55;
+}
+
+.body-container{
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.body-container h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+
+/* Navigation */
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: #3a3c55;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+ul.topnav li a:hover:not(.active) {
+    background-color: #006d7723;
+}
+
+ul.topnav li a.active {
+    color: #ffffff;
+    background-color: #006D77;}
+
+ul.topnav li.right {float: right;}
+
+/* Forms */
+.forms {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #006D77;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+input[type=submit]:hover {
+    opacity: 1;
+}
+
+.file-upload-form form input[type=submit]{
+    width: 80%;
+}
+
+.add-employee-form, .add-project-form, .file-upload-form {
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    ul.topnav li.right,
+    ul.topnav li {float: none;}
+}
+
+/* red
+#E63462 */
