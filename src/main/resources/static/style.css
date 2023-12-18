@@ -25,6 +25,7 @@ ul.topnav {
     padding: 0;
     overflow: hidden;
     background-color: #ffffff;
+    box-shadow: 1px 9px 21px -17px #888888;
 }
 
 ul.topnav li {float: left;}
@@ -48,6 +49,58 @@ ul.topnav li a.active {
     background-color: #006D77;}
 
 ul.topnav li.right {float: right;}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #006D77;
+    color: white;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 /* Forms */
 .forms {
@@ -93,6 +146,7 @@ input[type=submit]:hover {
     padding: 20px;
     background-color: #f1f1f1;
     border-radius: 5px;
+    box-shadow: 7px 10px 12px -9px #888888;
 }
 
 /* Responsive */
@@ -103,3 +157,47 @@ input[type=submit]:hover {
 
 /* red
 #E63462 */
+.project-cards-container, .employee-cards-container, .statistics-card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+.project-card, .employee-card, .statistics-card {
+    background-color: #f1f1f1;
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 7px 10px 12px -9px #888888;
+}
+
+.statistics-card h3 {
+    background-color: #006D77;
+    padding: 10px;
+    color: #ffff;
+}
+
+.statistics-card h4 {
+    background-color: #cccccc3a;
+    padding: 10px;
+}
+
+.details {
+    width: 60%;
+    background-color: #006D77;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.details:hover {
+    opacity: 1;
+}
