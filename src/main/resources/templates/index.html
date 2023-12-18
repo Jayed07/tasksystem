@@ -31,7 +31,7 @@
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
-                <input type="submit" value="Add">
+                <input type="submit" value="addEmployee">
             </form>
         </div>
 
@@ -47,15 +47,16 @@
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
-                <input type="submit" value="Add">
+                <input type="submit" value="addProject">
             </form>
         </div>
 
         <div class="file-upload-form">
             <h2>Upload CSV file</h2>
-            <form action="/action_page.php">
-                <input type="file" id="myFile" name="filename">
-                <input type="submit">
+            <form method="post" enctype="multipart/form-data" >
+                <input type="hidden" name="import" value="true">
+                <input type="file" id="csvFile" name="csvFile">
+                <input type="submit" value="import">
             </form>
         </div>
     </div>

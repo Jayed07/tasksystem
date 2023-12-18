@@ -2,6 +2,7 @@ package sirma.academy.tasksystem.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,8 +18,8 @@ public class ProjectCard {
     @JoinColumn(name = "project_id", referencedColumnName = "id", nullable = false)
     private Project project;
     @Column(nullable = false)
-    private Date dateFrom;
-    private Date dateTo;
+    private LocalDate dateFrom;
+    private LocalDate dateTo;
 
     public Long getId() {
         return id;
@@ -44,19 +45,19 @@ public class ProjectCard {
         this.project = project;
     }
 
-    public Date getDateFrom() {
+    public LocalDate getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(Date dateFrom) {
+    public void setDateFrom(LocalDate dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public Date getDateTo() {
+    public LocalDate getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(Date dateTo) {
+    public void setDateTo(LocalDate dateTo) {
         this.dateTo = dateTo;
     }
 }
