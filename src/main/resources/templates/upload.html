@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Upload</title>
+</head>
+<body>
+<ul class="topnav">
+    <li><a th:href="index">Home</a></li>
+    <li><a class="active" th:href="upload">Add data</a></li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Dashboard</a>
+        <div class="dropdown-content">
+            <a th:href="projects">Projects</a>
+            <a th:href="employees">Employees</a>
+            <a th:href="statistics">Statistics</a>
+        </div>
+    </li>
+    <li class="right"><a th:href="about">About</a></li>
+</ul>
+
+<div class="body-container">
+    <h1>Import data</h1>
+
+    <div class="forms">
+        <div class="add-employee-form">
+            <h2>Add Employee</h2>
+            <form action="/action_page.php">
+                <label for="employeeId">Employee ID:</label><br>
+                <input type="text" id="employeeId" name="employeeId" placeholder="123"><br>
+                <label for="projectId">Project ID:</label><br>
+                <select id="projectId" name="projectId">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <input type="submit" value="addEmployee">
+            </form>
+        </div>
+
+        <div class="add-project-form">
+            <h2>Add Project</h2>
+            <form action="/action_page.php">
+                <label for="projectId">Project ID:</label><br>
+                <input type="text" id="projectId" name="projectId" placeholder="123"><br>
+                <label for="employeeId">Employee ID:</label><br>
+                <select id="employeeId" name="employeeId">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <input type="submit" value="addProject">
+            </form>
+        </div>
+
+        <div class="file-upload-form">
+            <h2>Upload CSV file</h2>
+            <form method="post" enctype="multipart/form-data" >
+                <input type="hidden" name="import" value="true">
+                <input type="file" id="csvFile" name="csvFile">
+                <input type="submit" value="import">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

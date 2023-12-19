@@ -12,14 +12,18 @@ import sirma.academy.tasksystem.service.DataService;
 import java.io.IOException;
 
 @Controller
-@RequestMapping("/")
 public class DataController {
 
     @Autowired
     private DataService dataService;
-    @PostMapping(params = "import=true")
+
+    @GetMapping("/upload")
+    String upload() {
+        return "upload";
+    }
+    @PostMapping(value = "/upload", params = "import=true")
     public String importCSV(@RequestParam MultipartFile csvFile) throws IOException {
         dataService.importSCV(csvFile.getInputStream());
-        return "redirect:dashboard";
+        return "redirect:projects";
     }
 }
