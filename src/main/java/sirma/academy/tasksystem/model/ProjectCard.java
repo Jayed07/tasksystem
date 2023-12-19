@@ -25,9 +25,9 @@ public class ProjectCard {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     public Employee getEmployee() {
         return employee;

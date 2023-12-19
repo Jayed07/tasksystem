@@ -10,8 +10,8 @@ public class Employee {
     @Id
     @Column(nullable = false)
     private Long id;
-    @OneToMany
-    private List<Project> projects;
+//    @OneToMany
+//    private List<Project> projects = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -21,11 +21,11 @@ public class Employee {
         this.id = id;
     }
 
-    public List<Project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(List<Project> projects) {
-        this.projects = projects;
-    }
+//    public List<Project> getProjects() {
+//        return projects;
+//    }
+//
+//    public void setProjects(List<Project> projects) {
+//        this.projects = projects;
+//    }
 }
