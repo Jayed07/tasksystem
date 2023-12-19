@@ -26,19 +26,11 @@
       <h1>Projects</h1>
 
       <div class="project-cards-container">
-        <div class="project-card">
-            <h3>Project ID: 1</h3>
-            <p>Employees: 1, 2, 3</p>
-            <button class="details">View</button>
-        </div>
-        <div class="project-card">
-            <h3>Project ID: 1</h3>
-            <p>Employees: 1, 2, 3</p>
-            <button class="details">View</button>
-        </div>
-        <div class="project-card">
-            <h3>Project ID: 1</h3>
-            <p>Employees: 1, 2, 3</p>
+        <div th:each="entry : ${employeeIdsByProjectId}" class="project-card">
+            <h3 th:text="${entry.key}">Project ID: 1</h3>
+            <p th:each="employeeId : ${entry.value}">
+            <span th:text="${employeeId}"></span>
+            </p>
             <button class="details">View</button>
         </div>
       </div>

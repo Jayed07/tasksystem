@@ -11,10 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.*;
-import java.util.stream.Collectors;
-
 @Service
 public class DataService {
 
@@ -90,26 +86,7 @@ public class DataService {
                         if ((projectCardService.findByEmployeeAndProject(employeeService.getById(employeeId), projectService.getById(projectId))) != null) {
                             throw new IOException(String.format("Project-Employee pairs cannot be duplicated. Project: %d; Employee: %d", projectId, employeeId));
                         }
-//                    if(projectCardService.findProjectsByEmployeeId(employeeId).isEmpty()) {
-//
-//                    }
-//                    if (projectService.getById(projectId).getEmployees() == null) {
-//                        projectService.addEmployee(projectId, employeeService.getById(employeeId));
-//                    } else {
-//                        if(!projectService.getById(projectId).getEmployees().contains(employeeService.getById(employeeId))) {
-//                            projectService.addEmployee(projectId, employeeService.getById(employeeId));
-//                        } else {
-//                            throw new IOException(String.format("Project-Employee pairs cannot be duplicated. Project: %d; Employee: %d", projectId, employeeId));
-//
-//                        }
-//                    }
-//                    for (Employee employee : projectService.getById(projectId).getEmployees()) {
-//                        if (employee.getId() == employeeId) {
-//                            throw new IOException(String.format("Project-Employee pairs cannot be duplicated. Project: %d; Employee: %d", projectId, employeeId));
-//                        } else {
-//                            projectService.getById(projectId).addEmployee(employeeService.getById(employeeId));
-//                        }
-//                    }
+
                     } else {
                         throw new IOException("Invalid project ID: " + projectId);
                     }
@@ -123,15 +100,6 @@ public class DataService {
                     projectCard.setDateTo(dateTo);
 
                     //Save project card to repository
-//                if(employeeService.getById(employeeId) != null) {
-//                    for (Project project : employeeService.getById(employeeId).getProjects()) {
-//                        if (project.getId() == projectId) {
-//                            throw new IOException(String.format("Employee's projects cannot be duplicated. Employee: %d; Project: %d", employeeId, projectId));
-//                        }
-//                    }
-//                }
-
-
                     projectCardService.add(projectCard);
                 } catch (Exception e) {
                     e.printStackTrace();

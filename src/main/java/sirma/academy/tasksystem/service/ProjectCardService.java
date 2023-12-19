@@ -6,12 +6,8 @@ import sirma.academy.tasksystem.model.Employee;
 import sirma.academy.tasksystem.model.Project;
 import sirma.academy.tasksystem.model.ProjectCard;
 import sirma.academy.tasksystem.repository.ProjectCardRepository;
-import sirma.academy.tasksystem.repository.ProjectRepository;
 
 import java.util.*;
-import java.time.LocalDate;
-import java.util.Date;
-
 @Service
 public class ProjectCardService {
 
@@ -26,5 +22,26 @@ public class ProjectCardService {
 
     public ProjectCard findByEmployeeAndProject (Employee employee, Project project) {
         return projectCardRepository.getByEmployeeAndProject(employee, project);
+    }
+
+
+    public Map<Long, Set<Long>> getAllEmployeeIdsByProjectId() {
+        List<ProjectCard> projectCards = projectCardRepository.findAll();
+
+        Map<Long, Set<Long>> employeeIdsByProjectId = new HashMap<>();
+
+        for (ProjectCard projectCard : projectCards) {
+            Long projectId = projectCard.getProject().getId();
+            Long employeeId = projectCard.getEmployee().getId();
+
+            // Check if the project ID exists in the map
+            if (!employeeIdsByProjectId.containsKey(projectId)) {
+                employeeIdsByProjectId.put(projectId, new HashSet<>());
+            }
+
+            employeeIdsByProjectId.get(projectId).add(employeeId);
+        }
+
+        return employeeIdsByProjectId;
     }
 }
