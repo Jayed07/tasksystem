@@ -2,7 +2,6 @@ package sirma.academy.tasksystem.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sirma.academy.tasksystem.model.Employee;
 import sirma.academy.tasksystem.model.Project;
 import sirma.academy.tasksystem.repository.ProjectRepository;
 
@@ -31,9 +30,4 @@ public class ProjectService {
     public List<Project> projects() {
         return projectRepository.findAll();
     }
-
-//    public void addEmployee(Long projectId, Employee employee) {
-//        Project project = projectRepository.findById(projectId).orElse(null);
-//        project.getEmployees().add(employee);
-//    }
 }
