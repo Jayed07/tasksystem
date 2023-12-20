@@ -25,22 +25,13 @@
     <div class="body-container">
       <h1>Employees</h1>
       <div class="employee-cards-container">
-        <div class="employee-card">
-            <h3>Employee ID: 1</h3>
-            <p>Projects: 1, 2, 3</p>
+        <div th:each="entry : ${projectIdByEmployeeId}" class="employee-card">
+            <h3 th:text="${entry.key}">Employee ID: 1</h3>
+            <p th:each="projectId : ${entry.value}">
+            <span th:text="${projectId}"></span>
+            </p>
             <button class="details">View</button>
         </div>
-        <div class="employee-card">
-          <h3>Employee ID: 1</h3>
-          <p>Projects: 1, 2, 3</p>
-          <button class="details">View</button>
-      </div>
-      <div class="employee-card">
-        <h3>Employee ID: 1</h3>
-        <p>Projects: 1, 2, 3</p>
-        <button class="details">View</button>
-    </div>
-        
       </div>
     </div>
 

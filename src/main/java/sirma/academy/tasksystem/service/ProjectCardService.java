@@ -44,4 +44,24 @@ public class ProjectCardService {
 
         return employeeIdsByProjectId;
     }
+
+    public Map<Long, Set<Long>> getAllProjectsByEmployeeId() {
+        List<ProjectCard> projectCards = projectCardRepository.findAll();
+
+        Map<Long, Set<Long>> projectsByEmployeeId = new HashMap<>();
+
+        for (ProjectCard projectCard : projectCards) {
+            Long projectId = projectCard.getProject().getId();
+            Long employeeId = projectCard.getEmployee().getId();
+
+            // Check if the employee ID exists in the map
+            if (!projectsByEmployeeId.containsKey(employeeId)) {
+                projectsByEmployeeId.put(employeeId, new HashSet<>());
+            }
+
+            projectsByEmployeeId.get(employeeId).add(projectId);
+        }
+
+        return projectsByEmployeeId;
+    }
 }
