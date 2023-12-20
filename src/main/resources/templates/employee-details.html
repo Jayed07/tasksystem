@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Details</title>
+</head>
+<body>
+<ul class="topnav">
+    <li><a th:href="@{/index}">Home</a></li>
+    <li><a th:href="@{/upload}">Add data</a></li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn, active">Dashboard</a>
+        <div class="dropdown-content">
+            <a th:href="@{/projects}">Projects</a>
+            <a th:href="@{/employees}">Employees</a>
+            <a th:href="@{/statistics}">Statistics</a>
+        </div>
+    </li>
+    <li class="right"><a th:href="@{/about}">About</a></li>
+</ul>
+
+<div class="body-container">
+    <h1>Employee Details</h1>
+    <div class="statistics-card-container">
+        <div th:object="${employee}" class="statistics-card">
+            <h3 th:text="'Employee ID: ' + ${employee.id}">Employee #1</h3>
+            <p th:each="project : ${projects}">
+                <span th:text="${project.id}"></span>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

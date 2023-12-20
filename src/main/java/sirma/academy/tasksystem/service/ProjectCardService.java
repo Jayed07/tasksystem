@@ -15,6 +15,8 @@ public class ProjectCardService {
     private ProjectCardRepository projectCardRepository;
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private ProjectService projectService;
 
     public void add (ProjectCard projectCard) {
         projectCardRepository.save(projectCard);
@@ -45,7 +47,7 @@ public class ProjectCardService {
         return employeeIdsByProjectId;
     }
 
-    public Map<Long, Set<Long>> getAllProjectsByEmployeeId() {
+    public Map<Long, Set<Long>> getAllProjectsByEmployee() {
         List<ProjectCard> projectCards = projectCardRepository.findAll();
 
         Map<Long, Set<Long>> projectsByEmployeeId = new HashMap<>();
@@ -63,5 +65,35 @@ public class ProjectCardService {
         }
 
         return projectsByEmployeeId;
+    }
+
+    public Employee getEmployeeById(Long id) {
+        return employeeService.getById(id);
+    }
+
+    public List<Project> getAllProjectsByEmployeeId(Long id) {
+        List<ProjectCard> projectCards = projectCardRepository.findAll();
+        List<Project> projectList = new ArrayList<>();
+        for (ProjectCard projectCard : projectCards) {
+            if(projectCard.getEmployee() == employeeService.getById(id)) {
+                projectList.add(projectCard.getProject());
+            }
+        }
+        return projectList;
+    }
+
+    public Project getProjectById(Long id) {
+        return projectService.getById(id);
+    }
+
+    public List<Employee> getAllEmployeesByProjectId(Long id) {
+        List<ProjectCard> projectCards = projectCardRepository.findAll();
+        List<Employee> employeesList = new ArrayList<>();
+        for (ProjectCard projectCard : projectCards) {
+            if(projectCard.getProject() == projectService.getById(id)) {
+                employeesList.add(projectCard.getEmployee());
+            }
+        }
+        return employeesList;
     }
 }

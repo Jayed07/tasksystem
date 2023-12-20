@@ -29,4 +29,8 @@ public class EmployeeService {
     public List<Employee> employees() {
         return employeeRepository.findAll();
     }
+
+    public boolean ifExists(Long employeeId) {
+        return employeeRepository.findById(employeeId).isPresent();
+    }
 }
