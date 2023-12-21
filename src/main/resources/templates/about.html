@@ -1,31 +1,78 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css"/>
     <title>About</title>
-  </head>
-  <body>
-  <ul class="topnav">
-      <li><a th:href="@{/index}">Home</a></li>
-      <li><a th:href="@{/upload}">Add data</a></li>
-      <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Dashboard</a>
-          <div class="dropdown-content">
-              <a th:href="@{/projects}">Projects</a>
-              <a th:href="@{/employees}">Employees</a>
-              <a th:href="@{/statistics}">Statistics</a>
-          </div>
-      </li>
-      <li class="right"><a th:href="@{/about}" class="active">About</a></li>
-  </ul>
+</head>
+<body>
+<ul class="topnav">
+    <li><a th:href="@{/index}">Home</a></li>
+    <li><a th:href="@{/upload}">Add data</a></li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Dashboard</a>
+        <div class="dropdown-content">
+            <a th:href="@{/projects}">Projects</a>
+            <a th:href="@{/employees}">Employees</a>
+            <a th:href="@{/statistics}">Statistics</a>
+        </div>
+    </li>
+    <li class="right"><a th:href="@{/about}" class="active">About</a></li>
+</ul>
 
-    <div class="body-container">
-      <h1>About</h1>
+<div class="body-container">
+    <h1>About</h1>
 
-    </div>
+    <h2>Simple Spring Boot Application for task management</h2>
+    <p>An application allowing easy management of employees and projects, which calculates the pair of employees who
+        worked the longest on joint projects.</p>
+
+    <h3>Data Import</h3>
+    <p>Importing data into the system can be done in three ways:<br/>
+        <b>1. Adding an employee</b> - adding an employee is done through a simplified form, only the employee's ID
+        needs to be
+        filled in, the field cannot be empty and must be a number;<br/>
+        <b>2. Adding a project</b> - adding a project is done using a simplified form, only needing to fill in the
+        project's ID,
+        the field cannot be empty and must be a number;<br/>
+        <b>3. Uploading a CSV file</b> - in order to add multiple data at once, it is necessary to upload a CSV file,
+        with
+        lines in the following format "EmployeeID, ProjectID, DateFrom, DateTo". Each row creates a Project Card that
+        contains an Employee ID, a Project ID, a
+        start date and an end date, and if the value of the end date is NULL, it is considered to be a project that
+        is still being worked on by the specific employee, to today's date. Note that if any field is filled incorrectly
+        will
+        result in invalid data, which means that a Project Card will not be created. </p>
+
+    <h3>Dashboard</h3>
+    <p>In the Dashboard, you can find three subpages:<br/>
+        <b>1. Projects</b> - on the Projects page, all projects added to the database are visualized, first the active
+        projects
+        (those on which employees are working) will be visualized, and then the inactive ones (those on which no
+        employees are working);<br/>
+        <b>2. Employees</b> - the Employees page will display all the employees added to the database, first displaying
+        the
+        occupied employees (those who have projects, regardless of whether they are being worked on to today's date),
+        then the
+        free employees will be displayed (those without projects);<br/>
+        <b>3. Statistics</b> - on the Statistics page, the pair of employees who worked on joint projects, in the same
+        periods,
+        for the most time of all employees is visualized, and their total time (in days) for all projects, as and the
+        time (in days) for each project they worked on together.</p>
+
+    <h3>Editing and Deleting Data</h3>
+    <p>To edit Employee or Project details, simply click the VIEW button located at the bottom of each Employee/Project
+        card section. It will lead you to the details page where you will see Edit and Delete buttons.</p>
+    <p><b>1. Delete</b> - to delete an Employee/Project, simply press the DELETE button.
+        When deleting an Employee or Project, all Project Cards associated with them will also be deleted;<br/>
+        <b>2. Edit</b> - to edit an Employee/Project, press the EDIT button, which leads to a form containing the
+        Employee/Project ID field, and below that, a drop-down menu from which you can select a Project/Employee.
+        When adding an Employee-Project relationship, a new Project Card is created, with a start date of today's date
+        and an end date left blank.</p>
+
+</div>
 
 </body>
 </html>
