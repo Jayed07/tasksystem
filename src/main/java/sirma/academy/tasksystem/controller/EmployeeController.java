@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import sirma.academy.tasksystem.model.Employee;
 import sirma.academy.tasksystem.model.Project;
+import sirma.academy.tasksystem.service.EmployeeService;
 import sirma.academy.tasksystem.service.ProjectCardService;
 
 import java.util.*;
@@ -16,11 +17,16 @@ public class EmployeeController {
 
     @Autowired
     private ProjectCardService projectCardService;
+    @Autowired
+    private EmployeeService employeeService;
 
     @GetMapping("/employees")
     public String getEmployees(Model model) {
         Map<Long, Set<Long>> projectIdByEmployeeId = projectCardService.getAllProjectsByEmployee();
         model.addAttribute("projectIdByEmployeeId", projectIdByEmployeeId);
+
+        Set<Employee> freeEmployees = employeeService.getFreeEmployees();
+        model.addAttribute("freeEmployees", freeEmployees);
         return "employees";
     }
 
