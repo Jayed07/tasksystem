@@ -26,11 +26,12 @@
       <h1>Statistics</h1>
       <div class="statistics-card-container">
       <div class="statistics-card">
-        <h3>Employee #1 & Employee #2</h3>
-        <h4>Total time: 8 months</h4>
-        <h4>Projects: 1, 2</h4>
-        <p>Project #1: 5m</p>
-        <p>Project #2: 3m</p>
+        <h3 th:text="${stats.employeeIds}">Employee #1 & Employee #2</h3>
+          <p>Total Days Worked Together: <span th:text="${stats.totalDaysWorkedTogether}"></span></p>
+          <li th:each="entry : ${stats.projectsAndDays}">
+              <p>Project: <span th:text="${entry.key.id}"></span></p>
+              <p>Days Worked: <span th:text="${entry.value}"></span></p>
+          </li>
       </div>
     </div>
   </div>
