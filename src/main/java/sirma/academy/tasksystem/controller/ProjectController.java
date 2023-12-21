@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import sirma.academy.tasksystem.model.Employee;
 import sirma.academy.tasksystem.model.Project;
 import sirma.academy.tasksystem.service.ProjectCardService;
+import sirma.academy.tasksystem.service.ProjectService;
 
 import java.util.*;
 
@@ -16,10 +17,15 @@ public class ProjectController {
 
     @Autowired
     private ProjectCardService projectCardService;
+    @Autowired
+    private ProjectService projectService;
     @GetMapping("/projects")
     public String getProjects(Model model) {
         Map<Long, Set<Long>> employeeIdsByProjectId = projectCardService.getAllEmployeeIdsByProjectId();
         model.addAttribute("employeeIdsByProjectId", employeeIdsByProjectId);
+
+        Set<Project> unassignedProjects = projectService.getUnassignedProjects();
+        model.addAttribute("unassignedProjects", unassignedProjects);
         return "projects";
     }
 

@@ -39,7 +39,6 @@
         <div th:if="${not #lists.isEmpty(freeEmployees)}" class="employee-cards-container">
             <div th:each="employee : ${freeEmployees}" class="employee-card">
                 <h3 th:text="'Employee ID: ' + ${employee.id}">Employee ID: 1</h3>
-
                 <form  th:action="@{'/employees/' + ${employee.id}}">
                     <button class="details">View</button> </form>
             </div>

@@ -23,8 +23,8 @@
   </ul>
 
     <div class="body-container">
-      <h1>Projects</h1>
 
+      <h1>Projects</h1>
       <div class="project-cards-container">
         <div th:each="entry : ${employeeIdsByProjectId}" class="project-card">
             <h3 th:text="'Project ID:' + ${entry.key}">Project ID: 1</h3>
@@ -35,6 +35,15 @@
                 <button class="details">View</button> </form>
         </div>
       </div>
+
+        <h1 th:if="${not #lists.isEmpty(unassignedProjects)}">Unassigned Projects</h1>
+        <div th:if="${not #lists.isEmpty(unassignedProjects)}" class="project-cards-container">
+            <div th:each="project : ${unassignedProjects}" class="project-card">
+                <h3 th:text="'Project ID: ' + ${project.id}">Project ID: 1</h3>
+                <form  th:action="@{'/projects/' + ${project.id}}">
+                    <button class="details">View</button> </form>
+            </div>
+        </div>
       
     </div>
 
