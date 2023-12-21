@@ -206,3 +206,9 @@ input[type=submit]:hover {
     width: 100%;
     text-align: center;
 }
+
+.e-message {
+    font-size: 20px;
+    text-align: center;
+
+}
