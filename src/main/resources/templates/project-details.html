@@ -23,13 +23,17 @@
 </ul>
 
 <div class="body-container">
-    <h1>Employee Details</h1>
+    <h1>Project Details</h1>
     <div class="statistics-card-container">
         <div th:object="${project}" class="statistics-card">
             <h3 th:text="'Project ID: ' + ${project.id}">Employee #1</h3>
             <p th:each="employee : ${employees}">
                 <span th:text="${employee.id}"></span>
             </p>
+            <form  th:action="@{'/edit/' + ${project.id}}">
+                <button class="details">Edit</button> </form>
+            <form  th:action="@{'/delete/' + ${project.id}}" method="post">
+                <button class="details">Delete</button> </form>
         </div>
     </div>
 </div>

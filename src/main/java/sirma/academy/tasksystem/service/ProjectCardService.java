@@ -260,8 +260,16 @@ public class ProjectCardService {
         return projectsAndDays;
     }
 
-    List<ProjectCard> getAllProjectCardsByProjectId(Long id) {
+    public List<ProjectCard> getAllProjectCardsByProjectId(Long id) {
         return projectCardRepository.getAllProjectCardsByProjectId(id);
+    }
+
+    public void delete(ProjectCard projectCard) {
+        projectCardRepository.delete(projectCard);
+    }
+
+    public List<ProjectCard> getAllProjectCards() {
+        return projectCardRepository.findAll();
     }
 
 }

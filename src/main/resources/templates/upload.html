@@ -31,7 +31,7 @@
             <form action="/addEmployee" method="post">
                 <label for="employeeId">Employee ID:</label><br>
                 <input type="text" id="employeeId" name="employeeId" placeholder="123"><br>
-                <span th:text="${employeeIdError}" th:if="${employeeIdError}" class="error" style="font-size: 14px;color: red;"></span><br>
+                <span th:text="${employeeIdError}" th:if="${employeeIdError}" class="error" style="font-size: 14px;color: #d05b68;"></span><br>
                 <input type="submit" value="addEmployee">
             </form>
         </div>
@@ -41,7 +41,7 @@
             <form action="/addProject" method="post">
                 <label for="projectId">Project ID:</label><br>
                 <input type="text" id="projectId" name="projectId" placeholder="123"><br>
-                <span th:text="${projectIdError}" th:if="${projectIdError}" class="error" style="font-size: 14px;color: red;"></span><br>
+                <span th:text="${projectIdError}" th:if="${projectIdError}" class="error" style="font-size: 14px;color: #d05b68;"></span><br>
                 <input type="submit" value="addProject">
             </form>
         </div>

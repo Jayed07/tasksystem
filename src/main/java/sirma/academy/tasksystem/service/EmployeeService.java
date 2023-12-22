@@ -57,4 +57,8 @@ public class EmployeeService {
 
         return freeEmployees;
     }
+
+    public List<Employee> getAll() {
+        return employeeRepository.findAll();
+    }
 }
