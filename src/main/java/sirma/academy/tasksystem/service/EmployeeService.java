@@ -61,4 +61,8 @@ public class EmployeeService {
     public List<Employee> getAll() {
         return employeeRepository.findAll();
     }
+
+    public void delete(Long id) {
+        employeeRepository.findById(id).ifPresent(project -> employeeRepository.delete(project));
+    }
 }
