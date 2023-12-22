@@ -11,4 +11,6 @@ import java.util.*;
 public interface ProjectCardRepository extends JpaRepository<ProjectCard, Long> {
     ProjectCard getByEmployeeAndProject(Employee employee, Project projects);
     List<ProjectCard> getAllProjectCardsByProjectId(Long id);
+
+    List<ProjectCard> getAllProjectCardsByEmployeeId(Long id);
 }

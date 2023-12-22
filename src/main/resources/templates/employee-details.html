@@ -30,6 +30,10 @@
             <p th:each="project : ${projects}">
                 <span th:text="${project.id}"></span>
             </p>
+            <form  th:action="@{'/editEmployee/' + ${employee.id}}">
+                <button class="details">Edit</button> </form>
+            <form  th:action="@{'/deleteEmployee/' + ${employee.id}}" method="post">
+                <button class="details">Delete</button> </form>
         </div>
     </div>
 </div>

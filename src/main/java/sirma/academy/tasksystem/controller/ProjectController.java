@@ -47,7 +47,7 @@ public class ProjectController {
         return "project-details";
     }
 
-    @PostMapping("/delete/{id}")
+    @PostMapping("/deleteProject/{id}")
     public String deleteProject (@PathVariable Long id) {
 
         List <ProjectCard> projectCardList = projectCardService.getAllProjectCardsByProjectId(id);
@@ -61,7 +61,7 @@ public class ProjectController {
         return "redirect:/projects";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/editProject/{id}")
     public String getProjectEdit(@PathVariable Long id, Model model) {
         List<Employee> allEmployees = employeeService.getAll();
         List<Employee> allEmployeesByProject = projectCardService.getAllEmployeesByProjectId(id);
@@ -77,7 +77,7 @@ public class ProjectController {
         return "edit-project";
     }
 
-    @PostMapping("/edit/{id}")
+    @PostMapping("/editProject/{id}")
     public String postProjectEdit(@PathVariable Long id, @RequestParam("employeeId") Long employeeId) {
         Project project = projectService.getById(id);
         ProjectCard projectCard = new ProjectCard();

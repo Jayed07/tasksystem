@@ -57,7 +57,7 @@ public class DataController {
             return "upload";
         }
 
-        if (employeeService.ifExists(projectId)) {
+        if (projectService.ifExists(projectId)) {
             model.addAttribute("projectIdError", "Project already exists.");
             return "upload";
         }

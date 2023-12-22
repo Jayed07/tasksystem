@@ -272,5 +272,8 @@ public class ProjectCardService {
         return projectCardRepository.findAll();
     }
 
+    public List<ProjectCard> getAllProjectCardsByEmployeeId(Long id) {
+        return projectCardRepository.getAllProjectCardsByEmployeeId(id);
+    }
 }
 

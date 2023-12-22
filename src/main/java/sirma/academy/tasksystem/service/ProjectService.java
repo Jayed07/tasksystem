@@ -55,4 +55,12 @@ public class ProjectService {
 
         return unassignedProjects;
     }
+
+    public List<Project> getAll() {
+        return projectRepository.findAll();
+    }
+
+    public boolean ifExists(Long projectId) {
+        return projectRepository.findById(projectId).isPresent();
+    }
 }

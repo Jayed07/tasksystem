@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="/style.css"/>
-    <title>Edit project</title>
+    <title>Edit employee</title>
 </head>
 <body>
 <ul class="topnav">
@@ -23,16 +23,16 @@
 </ul>
 
 <div class="body-container">
-    <h1>Edit Project</h1>
+    <h1>Edit Employee</h1>
 
-    <div class="add-project-form">
-        <h2>Assign Project to Employee</h2>
-        <form th:action="@{'/editProject/' + ${projectId}}" method="post">
-            <label for="projectId">Project ID:</label><br>
-            <input th:disabled="disabled" type="text" id="projectId" name="projectId" placeholder="123" th:value="${projectId}"><br>
-            <label for="projectId">Select Employee ID:</label><br>
-            <select id="employeeId" name="employeeId" >
-                <option th:each="employee : ${availableEmployees}" th:value="${employee.id}" th:text="${employee.id}"></option>
+    <div class="add-employee-form">
+        <h2>Assign Employee to Project</h2>
+        <form th:action="@{'/editEmployee/' + ${employeeId}}" method="post">
+            <label for="employeeId">Employee ID:</label><br>
+            <input th:disabled="disabled" type="text" id="employeeId" name="employeeId" placeholder="123" th:value="${employeeId}"><br>
+            <label for="employeeId">Select Project ID:</label><br>
+            <select id="projectId" name="projectId" >
+                <option th:each="project : ${availableProjects}" th:value="${project.id}" th:text="${project.id}"></option>
             </select>
 
             <input type="submit" value="Confirm">
