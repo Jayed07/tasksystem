@@ -21,7 +21,7 @@ public class DataController {
     @Autowired
     private EmployeeService employeeService;
     @Autowired
-    private ProjectService projectService; //TODO: Field injection VS Constructor injection
+    private ProjectService projectService;
 
     @GetMapping("/upload")
     String upload() {

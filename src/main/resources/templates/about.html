@@ -26,17 +26,17 @@
     <h1>About</h1>
 
     <h2>Simple Spring Boot Application for task management</h2>
-    <p>An application allowing easy management of employees and projects, which calculates the pair of employees who
-        worked the longest on joint projects.</p>
+    <p>An application allowing easy management of employees and projects, which finds the pair of employees who
+        worked the longest on joint projects and calculates the time of their collaboration.</p>
 
     <h3>Data Import</h3>
     <p>Importing data into the system can be done in three ways:<br/>
         <b>1. Adding an employee</b> - adding an employee is done through a simplified form, only the employee's ID
         needs to be
-        filled in, the field cannot be empty and must be a number;<br/>
+        filled in, the field cannot be empty and must be a positive number;<br/>
         <b>2. Adding a project</b> - adding a project is done using a simplified form, only needing to fill in the
         project's ID,
-        the field cannot be empty and must be a number;<br/>
+        the field cannot be empty and must be a positive number;<br/>
         <b>3. Uploading a CSV file</b> - in order to add multiple data at once, it is necessary to upload a CSV file,
         with
         lines in the following format "EmployeeID, ProjectID, DateFrom, DateTo". Each row creates a Project Card that
@@ -67,7 +67,7 @@
     <p><b>1. Delete</b> - to delete an Employee/Project, simply press the DELETE button.
         When deleting an Employee or Project, all Project Cards associated with them will also be deleted;<br/>
         <b>2. Edit</b> - to edit an Employee/Project, press the EDIT button, which leads to a form containing the
-        Employee/Project ID field, and below that, a drop-down menu from which you can select a Project/Employee.
+        Employee/Project ID field which cannot be edited, and below that, a drop-down menu from which you can select a Project/Employee.
         When adding an Employee-Project relationship, a new Project Card is created, with a start date of today's date
         and an end date left blank.</p>
 

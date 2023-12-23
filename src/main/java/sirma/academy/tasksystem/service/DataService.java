@@ -17,16 +17,12 @@ import java.time.format.DateTimeFormatterBuilder;
 @Service
 public class DataService {
 
-    private EmployeeService employeeService;
-    private ProjectService projectService;
-    private ProjectCardService projectCardService;
-
     @Autowired
-    public DataService(EmployeeService employeeService, ProjectService projectService, ProjectCardService projectCardService) {
-        this.employeeService = employeeService;
-        this.projectService = projectService;
-        this.projectCardService = projectCardService;
-    }
+    private EmployeeService employeeService;
+    @Autowired
+    private ProjectService projectService;
+    @Autowired
+    private ProjectCardService projectCardService;
 
     public void importSCV(InputStream csvFileStream) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(csvFileStream));
@@ -54,12 +50,6 @@ public class DataService {
                     Long employeeId = Long.parseLong(values[0]);
                     Long projectId = Long.parseLong(values[1]);
                     LocalDate dateFrom = parseDate(values[2]);
-
-                    //Not necessary because of parse method
-//                    if (dateFrom == null) {
-//                        throw new IOException(String.format("Starting date cannot be NULL. Employee: %d; Project: %d", employeeId, projectId));
-//                    }
-//
                     LocalDate dateTo;
                     if (!values[3].equals("NULL")) {
                         dateTo = parseDate(values[3]);
@@ -110,13 +100,9 @@ public class DataService {
                         throw new IOException("Invalid project ID: " + projectId);
                     }
 
-                    //Date From
                     projectCard.setDateFrom(dateFrom);
-
-                    //Date To
                     projectCard.setDateTo(dateTo);
 
-                    //Save project card to repository
                     projectCardService.add(projectCard);
 
                 } catch (Exception e) {

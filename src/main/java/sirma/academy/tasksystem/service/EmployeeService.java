@@ -22,10 +22,6 @@ public class EmployeeService {
             employeeRepository.save(employee);
     }
 
-    public void fireEmployee(Long id) {
-        employeeRepository.findById(id).ifPresent(employee -> employeeRepository.delete(employee));
-    }
-
     public Employee getById(Long id) {
         return employeeRepository.findById(id).orElse(null);
     }

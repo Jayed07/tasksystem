@@ -42,7 +42,6 @@ public class ProjectCardService {
             Long projectId = projectCard.getProject().getId();
             Long employeeId = projectCard.getEmployee().getId();
 
-            // Check if the project ID exists in the map
             if (!employeeIdsByProjectId.containsKey(projectId)) {
                 employeeIdsByProjectId.put(projectId, new HashSet<>());
             }
@@ -62,7 +61,6 @@ public class ProjectCardService {
             Long projectId = projectCard.getProject().getId();
             Long employeeId = projectCard.getEmployee().getId();
 
-            // Check if the employee ID exists in the map
             if (!projectsByEmployeeId.containsKey(employeeId)) {
                 projectsByEmployeeId.put(employeeId, new HashSet<>());
             }
@@ -266,10 +264,6 @@ public class ProjectCardService {
 
     public void delete(ProjectCard projectCard) {
         projectCardRepository.delete(projectCard);
-    }
-
-    public List<ProjectCard> getAllProjectCards() {
-        return projectCardRepository.findAll();
     }
 
     public List<ProjectCard> getAllProjectCardsByEmployeeId(Long id) {
