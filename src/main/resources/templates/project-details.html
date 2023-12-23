@@ -27,13 +27,19 @@
     <div class="statistics-card-container">
         <div th:object="${project}" class="statistics-card">
             <h3 th:text="'Project ID: ' + ${project.id}">Employee #1</h3>
-            <p th:each="employee : ${employees}">
+            <p>
+                Employee IDs:
+                <span th:each="employee, iterStat : ${employees}">
                 <span th:text="${employee.id}"></span>
+                <span th:unless="${iterStat.last}">, </span>
+                </span>
             </p>
+            <div class="buttons-details">
             <form  th:action="@{'/editProject/' + ${project.id}}">
-                <button class="details">Edit</button> </form>
+                <button class="edit">Edit</button> </form>
             <form  th:action="@{'/deleteProject/' + ${project.id}}" method="post">
-                <button class="details">Delete</button> </form>
+                <button class="delete">Delete</button> </form>
+            </div>
         </div>
     </div>
 </div>

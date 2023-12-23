@@ -28,8 +28,12 @@
       <div class="project-cards-container">
         <div th:each="entry : ${employeeIdsByProjectId}" class="project-card">
             <h3 th:text="'Project ID: ' + ${entry.key}">Project ID: 1</h3>
-            <p th:each="employeeId : ${entry.value}">
-            <span th:text="${employeeId}"></span>
+            <p>
+                Employee IDs:
+                <span th:each="employeeId, iterStat : ${entry.value}">
+                <span th:text="${employeeId}"></span>
+                <span th:unless="${iterStat.last}">, </span>
+                </span>
             </p>
             <form  th:action="@{'/projects/' + ${entry.key}}">
                 <button class="details">View</button> </form>
@@ -44,7 +48,7 @@
                     <button class="details">View</button> </form>
             </div>
         </div>
-      
+
     </div>
 
 </body>

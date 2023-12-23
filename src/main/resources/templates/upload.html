@@ -28,30 +28,30 @@
     <div class="forms">
         <div class="add-employee-form">
             <h2>Add Employee</h2>
-            <form action="/addEmployee" method="post">
+            <form th:action="@{/addEmployee}" method="post">
                 <label for="employeeId">Employee ID:</label><br>
                 <input type="text" id="employeeId" name="employeeId" placeholder="123"><br>
                 <span th:text="${employeeIdError}" th:if="${employeeIdError}" class="error" style="font-size: 14px;color: #d05b68;"></span><br>
-                <input type="submit" value="addEmployee">
+                <input type="submit" value="Add Employee">
             </form>
         </div>
 
         <div class="add-project-form">
             <h2>Add Project</h2>
-            <form action="/addProject" method="post">
+            <form th:action="@{/addProject}" method="post">
                 <label for="projectId">Project ID:</label><br>
                 <input type="text" id="projectId" name="projectId" placeholder="123"><br>
                 <span th:text="${projectIdError}" th:if="${projectIdError}" class="error" style="font-size: 14px;color: #d05b68;"></span><br>
-                <input type="submit" value="addProject">
+                <input type="submit" value="Add Project">
             </form>
         </div>
 
         <div class="file-upload-form">
             <h2>Upload CSV file</h2>
-            <form action="uploadCSV" method="post" enctype="multipart/form-data">
+            <form th:action="@{/uploadCSV}" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="import" value="true">
                 <input type="file" id="csvFile" name="csvFile">
-                <input type="submit" value="import" onclick="checkUpload()">
+                <input type="submit" value="Import" onclick="checkUpload()">
             </form>
         </div>
     </div>

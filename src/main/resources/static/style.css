@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/*Body*/
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -14,6 +15,15 @@ body {
 
 .body-container h1 {
     font-size: 32px;
+    text-align: center;
+}
+
+.index-bgn {
+    width: 50%;
+    padding: 30px;
+}
+
+.body-index {
     text-align: center;
 }
 
@@ -132,6 +142,7 @@ input[type=submit] {
     cursor: pointer;
     opacity: 0.6;
     transition: 0.3s;
+    text-transform: uppercase;
 }
 
 input[type=submit]:hover {
@@ -147,31 +158,83 @@ input[type=submit]:hover {
     background-color: #f1f1f1;
     border-radius: 5px;
     box-shadow: 7px 10px 12px -9px #888888;
+    max-width: 60%;
 }
 
-/* Responsive */
-@media screen and (max-width: 600px) {
-    ul.topnav li.right,
-    ul.topnav li {float: none;}
+.e-message {
+    font-size: 20px;
+    text-align: center;
+
 }
 
-/* red
-#E63462 */
-.project-cards-container, .employee-cards-container, .statistics-card-container {
+
+/*Buttons*/
+.buttons-details {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     align-content: center;
     justify-content: space-around;
     align-items: center;
 }
+
+.buttons-details form {
+    width: 80%;
+}
+
+.buttons-details form button {
+    width: 80%;
+}
+
+.details, .edit, .delete{
+    width: 60%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.details:hover, .edit:hover, .delete:hover {
+    opacity: 1;
+}
+
+.details, .edit {
+    background-color: #006D77;
+}
+
+.delete {
+    background-color: #d05b68;
+}
+
+/*Cards*/
+.project-cards-container, .employee-cards-container, .statistics-card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+}
 .project-card, .employee-card, .statistics-card {
     background-color: #f1f1f1;
-    width: 30%;
     text-align: center;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 7px 10px 12px -9px #888888;
+    margin: 15px;
+}
+
+.project-card, .employee-card {
+    width: 25%;
+}
+
+.statistics-card {
+    min-width: 40%;
 }
 
 .statistics-card h3 {
@@ -185,36 +248,11 @@ input[type=submit]:hover {
     padding: 10px;
 }
 
-.details {
-    width: 60%;
-    background-color: #006D77;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: 0.3s;
+.stats-span p {
+    margin: 0;
 }
 
-.details:hover {
-    opacity: 1;
+.days {
+    margin-bottom: 8px !important;
 }
 
-.index-bgn {
-    width: 50%;
-    padding: 30px;
-}
-
-.body-index {
-    text-align: center;
-}
-
-.e-message {
-    font-size: 20px;
-    text-align: center;
-
-}
-
-/*d05b68*/
