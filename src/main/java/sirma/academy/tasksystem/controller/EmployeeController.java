@@ -56,6 +56,8 @@ public class EmployeeController {
                 projectCardService.delete(projectCard);
             }
             employeeService.delete(id);
+        } else {
+            employeeService.delete(id);
         }
 
         return "redirect:/employees";

@@ -56,6 +56,8 @@ public class ProjectController {
                 projectCardService.delete(projectCard);
             }
             projectService.delete(id);
+        } else {
+            projectService.delete(id);
         }
 
         return "redirect:/projects";

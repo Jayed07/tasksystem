@@ -38,6 +38,11 @@ public class DataController {
             return "upload";
         }
 
+        if (employeeId < 0) {
+            model.addAttribute("employeeIdError", "Employee ID must be a positive number.");
+            return "upload";
+        }
+
         if (employeeService.ifExists(employeeId)) {
             model.addAttribute("employeeIdError", "Employee already exists.");
             return "upload";
@@ -50,10 +55,16 @@ public class DataController {
     @PostMapping("/addProject")
     public String addProject(@RequestParam("projectId") String projectIdString, Model model) {
         Long projectId;
+
         try {
             projectId = Long.parseLong(projectIdString);
         } catch (NumberFormatException e) {
             model.addAttribute("projectIdError", "Invalid Project ID format.");
+            return "upload";
+        }
+
+        if (projectId < 0) {
+            model.addAttribute("projectIdError", "Project ID must be a positive number.");
             return "upload";
         }
 
